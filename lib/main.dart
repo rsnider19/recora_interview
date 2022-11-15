@@ -9,5 +9,9 @@ import 'package:recora/app/app.dart';
 import 'package:recora/bootstrap.dart';
 
 void main() {
-  bootstrap(() => const App());
+  bootstrap(
+    ({required movieDatabaseApiKey}) async => App(
+      movieDatabaseApiKey: movieDatabaseApiKey,
+    ),
+  );
 }
