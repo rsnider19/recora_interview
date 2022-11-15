@@ -5,9 +5,10 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:recora/app/app.dart';
-import 'package:recora/bootstrap.dart';
+/// A Very Good Project created by Very Good CLI.
+library movie_repository;
 
-void main() {
-  bootstrap(() => const App());
-}
+export 'src/models/models.dart';
+export 'src/movie_api.dart';
+export 'src/movie_repository.dart';
+export 'src/rest_movie_api.dart';
