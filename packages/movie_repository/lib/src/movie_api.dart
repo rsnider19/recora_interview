@@ -11,5 +11,5 @@ abstract class MovieApi {
 
   Future<List<Movie>> searchMovies(String query);
 
-  Future<Movie> getMovie(int id);
+  Future<List<Movie>> getRecommendations(int id);
 }

@@ -184,7 +184,7 @@ packages:
     source: hosted
     version: "2.2.3"
   dartx:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dartx
       url: "https://pub.dartlang.org"
@@ -198,7 +198,7 @@ packages:
     source: hosted
     version: "0.4.1"
   equatable:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: equatable
       url: "https://pub.dartlang.org"
@@ -436,6 +436,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
+  recora_utils:
+    dependency: "direct main"
+    description:
+      path: "packages/recora_utils"
+      relative: true
+    source: path
+    version: "0.1.0+1"
   shelf:
     dependency: transitive
     description:

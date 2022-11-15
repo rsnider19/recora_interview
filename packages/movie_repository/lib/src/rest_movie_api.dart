@@ -41,23 +41,13 @@ class RestMovieApi extends MovieApi {
   }
 
   @override
-  Future<Movie> getMovie(int id) {
-    // TODO: implement getMovie
-    throw UnimplementedError();
-  }
-
-  @override
   Future<List<Movie>> getTrendingMovies() async {
     final uri = _getUri('/3/trending/movie/week');
     final resp = await http.get(uri);
 
     if (resp.statusCode == 200) {
       final data = jsonDecode(resp.body) as Map<String, dynamic>;
-      return (data['results'] as List)
-          .map(
-            (m) => Movie.fromJson(m as Map<String, dynamic>),
-          )
-          .toList();
+      return (data['results'] as List).map((m) => Movie.fromJson(m as Map<String, dynamic>)).toList();
     } else {
       throw MovieException(resp.body);
     }
@@ -66,5 +56,18 @@ class RestMovieApi extends MovieApi {
   @override
   Future<List<Movie>> searchMovies(String query) async {
     throw UnimplementedError();
+  }
+
+  @override
+  Future<List<Movie>> getRecommendations(int id) async {
+    final uri = _getUri('/3/movie/$id/recommendations');
+    final resp = await http.get(uri);
+
+    if (resp.statusCode == 200) {
+      final data = jsonDecode(resp.body) as Map<String, dynamic>;
+      return (data['results'] as List).map((m) => Movie.fromJson(m as Map<String, dynamic>)).toList();
+    } else {
+      throw MovieException(resp.body);
+    }
   }
 }

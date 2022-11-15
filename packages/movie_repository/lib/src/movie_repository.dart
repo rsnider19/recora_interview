@@ -27,7 +27,7 @@ class MovieRepository {
     return _movieApi.searchMovies(query);
   }
 
-  Future<Movie> getMovie(int id) {
-    return _movieApi.getMovie(id);
+  Future<List<Movie>> getRecommendations(int id) {
+    return _movieApi.getRecommendations(id);
   }
 }

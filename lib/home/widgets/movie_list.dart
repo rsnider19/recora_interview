@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_repository/movie_repository.dart';
+import 'package:recora/movie_details/view/movie_details_page.dart';
 
 class MovieList extends StatelessWidget {
   const MovieList({
@@ -20,29 +21,34 @@ class MovieList extends StatelessWidget {
       itemCount: movies.length,
       itemBuilder: (context, index) {
         final movie = movies[index];
-        return Card(
-          clipBehavior: Clip.antiAlias,
-          child: Column(
-            children: [
-              Image.network(
-                '$moviePosterBaseUrl${movie.posterPath}',
-                fit: BoxFit.contain,
-              ),
-              Expanded(
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      movie.title,
-                      style: Theme.of(context).textTheme.labelMedium,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+        return GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            MovieDetailsPage.route(movie),
+          ),
+          child: Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                Image.network(
+                  '$moviePosterBaseUrl${movie.posterPath}',
+                  fit: BoxFit.contain,
+                ),
+                Expanded(
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        movie.title,
+                        style: Theme.of(context).textTheme.labelMedium,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
